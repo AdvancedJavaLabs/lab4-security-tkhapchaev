@@ -1,0 +1,5 @@
+5e652fa9ac09c9fac36bbadc3562a0c8eed1a47438a9d1f545e021ae3c5648b1  /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-java.yml
+7ea897fae09428b367bc4e8a94a2b6f00a68431c3a9f6e0bbf7b4a314f758ec3  /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-owasp-top-ten.yml
+ed48dc61a31e4917fde63341f7f3577a546079661b435d233f6ffde3221e56ca  /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-javalin.yml
+fbbe6809214065a2efec7264cd1c9ca16be9b3e7665dfa790e0bdfd08a6d7a16  /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-secrets.yml
+fdc7027973176abe71f6b1fc8739ef88a4c411735c380cfce4f731df9644e47a  /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-security-audit.yml

@@ -1,0 +1,81 @@
+rules:
+  - id: javalin.xss.user-profile
+    message: "User-controlled data is embedded into HTML response without escaping (XSS risk)."
+    severity: ERROR
+    languages: [java]
+    metadata:
+      category: security
+      cwe: "CWE-79"
+      owasp: "A03:2021-Injection"
+      confidence: high
+    patterns:
+      - pattern-inside: |
+          app.get("/userProfile", ctx -> {
+            ...
+          });
+      - pattern: |
+          ctx.contentType("text/html").result($HTML);
+
+  - id: javalin.path-traversal.export-report
+    message: "User-supplied filename is concatenated into server path (path traversal / arbitrary file write risk)."
+    severity: ERROR
+    languages: [java]
+    metadata:
+      category: security
+      cwe: "CWE-22"
+      owasp: "A01:2021-Broken Access Control"
+      confidence: high
+    patterns:
+      - pattern-inside: |
+          app.get("/exportReport", ctx -> {
+            ...
+          });
+      - pattern: |
+          File $REPORT_FILE = new File(REPORTS_BASE_DIR + $FILENAME);
+
+  - id: javalin.ssrf.notify
+    message: "callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk)."
+    severity: ERROR
+    languages: [java]
+    metadata:
+      category: security
+      cwe: "CWE-918"
+      owasp: "A10:2021-Server-Side Request Forgery"
+      confidence: high
+    patterns:
+      - pattern-inside: |
+          app.post("/notify", ctx -> {
+            ...
+          });
+      - pattern: |
+          URLConnection connection = url.openConnection();
+
+  - id: javalin.error-disclosure.exception-message
+    message: "Raw exception message is returned to client (information disclosure)."
+    severity: WARNING
+    languages: [java]
+    metadata:
+      category: security
+      cwe: "CWE-209"
+      confidence: high
+    pattern-either:
+      - pattern: |
+          ctx.status($STATUS).result(... + e.getMessage());
+      - pattern: |
+          ctx.result(... + e.getMessage());
+
+  - id: javalin.input-validation.session-order
+    message: "Session timestamps are accepted without explicit login < logout validation."
+    severity: WARNING
+    languages: [java]
+    metadata:
+      category: security
+      cwe: "CWE-20"
+      confidence: medium
+    patterns:
+      - pattern-inside: |
+          app.post("/recordSession", ctx -> {
+            ...
+          });
+      - pattern: |
+          boolean success = service.recordSession(userId, login, logout);

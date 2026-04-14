@@ -1,0 +1,384 @@
+{
+  "version": "2.1.0",
+  "runs": [
+    {
+      "invocations": [
+        {
+          "executionSuccessful": true,
+          "toolExecutionNotifications": []
+        }
+      ],
+      "results": [
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 80,
+                  "endLine": 67,
+                  "snippet": {
+                    "text": "                boolean success = service.recordSession(userId, login, logout);"
+                  },
+                  "startColumn": 17,
+                  "startLine": 67
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Session timestamps are accepted without explicit login < logout validation."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.input-validation.session-order"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 75,
+                  "endLine": 74,
+                  "snippet": {
+                    "text": "                ctx.status(400).result(\"Invalid data: \" + e.getMessage());"
+                  },
+                  "startColumn": 17,
+                  "startLine": 74
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Raw exception message is returned to client (information disclosure)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.error-disclosure.exception-message"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 75,
+                  "endLine": 115,
+                  "snippet": {
+                    "text": "                ctx.status(400).result(\"Invalid data: \" + e.getMessage());"
+                  },
+                  "startColumn": 17,
+                  "startLine": 115
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Raw exception message is returned to client (information disclosure)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.error-disclosure.exception-message"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 55,
+                  "endLine": 139,
+                  "snippet": {
+                    "text": "            ctx.contentType(\"text/html\").result(html);"
+                  },
+                  "startColumn": 13,
+                  "startLine": 139
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "User-controlled data is embedded into HTML response without escaping (XSS risk)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.xss.user-profile"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 69,
+                  "endLine": 154,
+                  "snippet": {
+                    "text": "            File reportFile = new File(REPORTS_BASE_DIR + filename);"
+                  },
+                  "startColumn": 13,
+                  "startLine": 154
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "User-supplied filename is concatenated into server path (path traversal / arbitrary file write risk)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.path-traversal.export-report"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 85,
+                  "endLine": 163,
+                  "snippet": {
+                    "text": "                ctx.status(500).result(\"Failed to write report: \" + e.getMessage());"
+                  },
+                  "startColumn": 17,
+                  "startLine": 163
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Raw exception message is returned to client (information disclosure)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.error-disclosure.exception-message"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 65,
+                  "endLine": 181,
+                  "snippet": {
+                    "text": "                URLConnection connection = url.openConnection();"
+                  },
+                  "startColumn": 17,
+                  "startLine": 181
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.ssrf.notify"
+        },
+        {
+          "fingerprints": {
+            "matchBasedId/v1": "requires login"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+                  "uriBaseId": "%SRCROOT%"
+                },
+                "region": {
+                  "endColumn": 82,
+                  "endLine": 189,
+                  "snippet": {
+                    "text": "                ctx.status(500).result(\"Notification failed: \" + e.getMessage());"
+                  },
+                  "startColumn": 17,
+                  "startLine": 189
+                }
+              }
+            }
+          ],
+          "message": {
+            "text": "Raw exception message is returned to client (information disclosure)."
+          },
+          "properties": {},
+          "ruleId": "semgrep.rules.javalin.error-disclosure.exception-message"
+        }
+      ],
+      "tool": {
+        "driver": {
+          "name": "Semgrep OSS",
+          "rules": [
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Raw exception message is returned to client (information disclosure)."
+              },
+              "help": {
+                "markdown": "Raw exception message is returned to client (information disclosure).",
+                "text": "Raw exception message is returned to client (information disclosure)."
+              },
+              "id": "semgrep.rules.javalin.error-disclosure.exception-message",
+              "name": "semgrep.rules.javalin.error-disclosure.exception-message",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-209",
+                  "high CONFIDENCE",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: semgrep.rules.javalin.error-disclosure.exception-message"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "warning"
+              },
+              "fullDescription": {
+                "text": "Session timestamps are accepted without explicit login < logout validation."
+              },
+              "help": {
+                "markdown": "Session timestamps are accepted without explicit login < logout validation.",
+                "text": "Session timestamps are accepted without explicit login < logout validation."
+              },
+              "id": "semgrep.rules.javalin.input-validation.session-order",
+              "name": "semgrep.rules.javalin.input-validation.session-order",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-20",
+                  "medium CONFIDENCE",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: semgrep.rules.javalin.input-validation.session-order"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "User-supplied filename is concatenated into server path (path traversal / arbitrary file write risk)."
+              },
+              "help": {
+                "markdown": "User-supplied filename is concatenated into server path (path traversal / arbitrary file write risk).",
+                "text": "User-supplied filename is concatenated into server path (path traversal / arbitrary file write risk)."
+              },
+              "id": "semgrep.rules.javalin.path-traversal.export-report",
+              "name": "semgrep.rules.javalin.path-traversal.export-report",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-22",
+                  "OWASP-A01:2021-Broken Access Control",
+                  "high CONFIDENCE",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: semgrep.rules.javalin.path-traversal.export-report"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk)."
+              },
+              "help": {
+                "markdown": "callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk).",
+                "text": "callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk)."
+              },
+              "id": "semgrep.rules.javalin.ssrf.notify",
+              "name": "semgrep.rules.javalin.ssrf.notify",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-918",
+                  "OWASP-A10:2021-Server-Side Request Forgery",
+                  "high CONFIDENCE",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: semgrep.rules.javalin.ssrf.notify"
+              }
+            },
+            {
+              "defaultConfiguration": {
+                "level": "error"
+              },
+              "fullDescription": {
+                "text": "User-controlled data is embedded into HTML response without escaping (XSS risk)."
+              },
+              "help": {
+                "markdown": "User-controlled data is embedded into HTML response without escaping (XSS risk).",
+                "text": "User-controlled data is embedded into HTML response without escaping (XSS risk)."
+              },
+              "id": "semgrep.rules.javalin.xss.user-profile",
+              "name": "semgrep.rules.javalin.xss.user-profile",
+              "properties": {
+                "precision": "very-high",
+                "tags": [
+                  "CWE-79",
+                  "OWASP-A03:2021-Injection",
+                  "high CONFIDENCE",
+                  "security"
+                ]
+              },
+              "shortDescription": {
+                "text": "Semgrep Finding: semgrep.rules.javalin.xss.user-profile"
+              }
+            }
+          ],
+          "semanticVersion": "1.159.0"
+        }
+      }
+    }
+  ],
+  "$schema": "https://docs.oasis-open.org/sarif/sarif/v2.1.0/os/schemas/sarif-schema-2.1.0.json"
+}

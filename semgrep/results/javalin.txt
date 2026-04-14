@@ -1,0 +1,120 @@
+running 5 rules from 1 config /mnt/d/projects/lab4-security-tkhapchaev/semgrep/rules/p-javalin.yml_0
+Rules:
+- semgrep.rules.javalin.error-disclosure.exception-message
+- semgrep.rules.javalin.input-validation.session-order
+- semgrep.rules.javalin.path-traversal.export-report
+- semgrep.rules.javalin.ssrf.notify
+- semgrep.rules.javalin.xss.user-profile
+               
+               
+┌─────────────┐
+│ Scan Status │
+└─────────────┘
+  Scanning 6 files tracked by git with 5 Code rules:
+  Scanning 6 files with 5 java rules.
+SCA findings adjustment: No SCA rules to adjust
+
+========================================
+Files skipped:
+========================================
+
+  Always skipped by Semgrep:
+
+   • <none>
+
+  Skipped by .gitignore:
+  (Disable by passing --no-git-ignore)
+
+   • <all files not listed by `git ls-files` were skipped>
+
+  Skipped by .semgrepignore:
+  - https://semgrep.dev/docs/ignoring-files-folders-code/#understand-semgrep-defaults
+
+   • <none>
+
+  Skipped by --include patterns:
+
+   • <none>
+
+  Skipped by --exclude patterns:
+
+   • <none>
+
+  Files that couldn't be accessed:
+
+   • <none>
+
+  Skipped by limiting to files smaller than 1000000 bytes:
+  (Adjust with the --max-target-bytes flag)
+
+   • <none>
+
+  Partially analyzed due to parsing or internal Semgrep errors
+
+   • <none>
+
+                
+                
+┌──────────────┐
+│ Scan Summary │
+└──────────────┘
+✅ Scan completed successfully.
+ • Findings: 8 (8 blocking)
+ • Rules run: 5
+ • Targets scanned: 6
+ • Parsed lines: ~100.0%
+ • Scan was limited to files tracked by git
+Ran 5 rules on 6 files: 8 findings.
+Not sending pseudonymous metrics since metrics are configured to OFF, registry usage is False, and login status is False
+                   
+                   
+┌─────────────────┐
+│ 8 Code Findings │
+└─────────────────┘
+                                                                                                                       
+    /mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java
+    ❯❱ semgrep.rules.javalin.input-validation.session-order
+          ❰❰ Blocking ❱❱
+          Session timestamps are accepted without explicit login < logout validation.
+                                                                                     
+           67┆ boolean success = service.recordSession(userId, login, logout);
+   
+    ❯❱ semgrep.rules.javalin.error-disclosure.exception-message
+          ❰❰ Blocking ❱❱
+          Raw exception message is returned to client (information disclosure).
+                                                                               
+           74┆ ctx.status(400).result("Invalid data: " + e.getMessage());
+            ⋮┆----------------------------------------
+          115┆ ctx.status(400).result("Invalid data: " + e.getMessage());
+   
+   ❯❯❱ semgrep.rules.javalin.xss.user-profile
+          ❰❰ Blocking ❱❱
+          User-controlled data is embedded into HTML response without escaping (XSS risk).
+                                                                                          
+          139┆ ctx.contentType("text/html").result(html);
+   
+   ❯❯❱ semgrep.rules.javalin.path-traversal.export-report
+          ❰❰ Blocking ❱❱
+          User-supplied filename is concatenated into server path (path traversal / arbitrary file write
+          risk).                                                                                        
+                                                                                                        
+          154┆ File reportFile = new File(REPORTS_BASE_DIR + filename);
+   
+    ❯❱ semgrep.rules.javalin.error-disclosure.exception-message
+          ❰❰ Blocking ❱❱
+          Raw exception message is returned to client (information disclosure).
+                                                                               
+          163┆ ctx.status(500).result("Failed to write report: " + e.getMessage());
+   
+   ❯❯❱ semgrep.rules.javalin.ssrf.notify
+          ❰❰ Blocking ❱❱
+          callbackUrl from request is used for outbound URL connection without allowlist checks (SSRF risk).
+                                                                                                            
+          181┆ URLConnection connection = url.openConnection();
+   
+    ❯❱ semgrep.rules.javalin.error-disclosure.exception-message
+          ❰❰ Blocking ❱❱
+          Raw exception message is returned to client (information disclosure).
+                                                                               
+          189┆ ctx.status(500).result("Notification failed: " + e.getMessage());
+

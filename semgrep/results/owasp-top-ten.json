@@ -1,0 +1,88 @@
+{
+  "version": "1.159.0",
+  "results": [],
+  "errors": [],
+  "paths": {
+    "scanned": [
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/Main.java",
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/controller/UserAnalyticsController.java",
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/profilingdemo/ProfilingDemoMain.java",
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/profilingdemo/ProfilingWorkload.java",
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/service/UserAnalyticsService.java",
+      "/mnt/d/projects/lab4-security-tkhapchaev/src/main/java/ru/itmo/testing/lab4/service/UserStatusService.java"
+    ]
+  },
+  "time": {
+    "rules": [],
+    "rules_parse_time": 0.6578290462493896,
+    "profiling_times": {
+      "config_time": 3.64554500579834,
+      "core_time": 1.93292236328125,
+      "ignores_time": 0.0005605220794677734,
+      "total_time": 5.641040802001953
+    },
+    "parsing_time": {
+      "total_time": 0.0,
+      "per_file_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "scanning_time": {
+      "total_time": 0.5260541439056396,
+      "per_file_time": {
+        "mean": 0.029225230216979977,
+        "std_dev": 0.001132775091783679
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_files": []
+    },
+    "matching_time": {
+      "total_time": 0.0,
+      "per_file_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_files": []
+    },
+    "tainting_time": {
+      "total_time": 0.0,
+      "per_def_and_rule_time": {
+        "mean": 0.0,
+        "std_dev": 0.0
+      },
+      "very_slow_stats": {
+        "time_ratio": 0.0,
+        "count_ratio": 0.0
+      },
+      "very_slow_rules_on_defs": []
+    },
+    "fixpoint_timeouts": [],
+    "prefiltering": {
+      "project_level_time": 0.0,
+      "file_level_time": 0.0,
+      "rules_with_project_prefilters_ratio": 0.0,
+      "rules_with_file_prefilters_ratio": 0.9538461538461539,
+      "rules_selected_ratio": 0.10256410256410256,
+      "rules_matched_ratio": 0.10256410256410256
+    },
+    "targets": [],
+    "total_bytes": 0,
+    "max_memory_bytes": 858223104
+  },
+  "engine_requested": "OSS",
+  "skipped_rules": [],
+  "profiling_results": []
+}

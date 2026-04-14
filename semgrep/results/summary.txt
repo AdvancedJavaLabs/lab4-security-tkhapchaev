@@ -1,0 +1,5 @@
+java findings: 0
+owasp-top-ten findings: 0
+security-audit findings: 0
+secrets findings: 0
+javalin findings: 8
